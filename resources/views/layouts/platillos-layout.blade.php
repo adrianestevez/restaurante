@@ -44,9 +44,27 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="">Platillos</a></li>
-          <li class="book-a-table text-center"><a href="#book-a-table">Book a table</a></li>
+          <li class="active"><a href="{{route('platillos')}}">Platillos</a></li>
+          <li><a href="{{route('platillos')}}">Empleados</a></li>
+          <!-- Dropdown Menu -->
+          <li >
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle nav-link active text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="true">Dropdown</a>
+              <ul class="dropdown-menu">
+                <li>
+                      <!-- Authentication -->
+                      <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">Log Out</a>
+                    </form>
+                    <a class="dropdown-item text-warning" href="#">Action</a>
+
+                </li>
+                <li><a class="dropdown-item text-warning" href="#">Another action</a></li>
+                <li><a class="dropdown-item text-warning" href="#">Something else here</a></li>
+              </ul>
+        </li>
         </ul>
       </nav><!-- .nav-menu -->
 
@@ -71,7 +89,7 @@
 
   <!-- Template Main JS File -->
   <script src="{{{ asset('js/main.js')}}}"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
 
 </html>

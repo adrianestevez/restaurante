@@ -61,8 +61,23 @@
           <li><a href="#gallery">Gallery</a></li>
           <li><a href="#contact">Contact</a></li>
 
-          <li class="book-a-table text-center"><a href="">Log In</a></li>
-          <li class="book-a-table text-center"><a href="">Registrer</a></li>
+          @if (Route::has('login'))
+                    @auth 
+                        <li class="book-a-table text-center">
+                         @csrf
+                          <form action="{{route('logout')}}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn"><a>Log Out</a></button>
+                          </form>
+                        </li>
+                    @else
+                        <li class="book-a-table text-center"><a href="{{ route('login') }}">Log in</a></li>
+                        @if (Route::has('register'))
+                            <li class="book-a-table text-center"><a href="{{ route('register') }}">Register</a></li>
+                        @endif
+                    @endauth
+            @endif
+                  
         </ul>
       </nav><!-- .nav-menu -->
 
