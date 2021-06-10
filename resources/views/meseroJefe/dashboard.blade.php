@@ -30,7 +30,7 @@
                   <th>Acción</th>
                 </thead>
                 <tbody>
-                @foreach ($platillos as $platillo)
+                  @foreach ($platillos as $platillo)
                   <tr>
                     <td>{{{ $platillo->id_platillos }}}</td>
                     <td>{{ $platillo->nombre }}</td>
@@ -61,6 +61,7 @@
 
 
                       <!--Tenemos que crear un foorm aparte y mandarlo a llamar desde el enlace mediante javascript-->
+                      <!-- <form id="delete-{{$platillo->id_platillos}}" action="{{ route('platillos.destroy', $platillo->id_platillos) }}" method="POST">                       -->
                       <form id="delete-{{$platillo->id_platillos}}" action="{{ route('platillos.destroy', $platillo) }}" method="POST">                      
                         @csrf
                         @method('DELETE')

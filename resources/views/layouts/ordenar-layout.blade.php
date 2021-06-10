@@ -44,34 +44,8 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="{{route('platillos.index')}}">Platillos</a></li>
-          <li><a href="{{route('platillos.index')}}">Empleados</a></li>
-          <!-- Dropdown Menu -->
-          <li >
-            <li class="nav-item dropdown">
-              @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />    
-              @else
-                <a class="nav-link dropdown-toggle nav-link active text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="true">{{ Auth::user()->name }}</a>
-              @endif
-              <ul class="dropdown-menu">
-                
-                            
-                <li><a class="dropdown-item text-warning"  id="drop" href="{{ route('profile.show') }}">Perfil</a></li>
-                <li>
-                  @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                    <a class="dropdown-item text-warning" href="{{ route('api-tokens.index')}}">API Tokens</a>
-                  @endif
-                </li>
-                <li>
-                      <!-- Authentication -->
-                      <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <a class="dropdown-item text-warning" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">Log Out</a>
-                    </form>
-                </li>
-              </ul>
-          </li>
+          <li class="active"><a href="{{route('ordenar')}}">Ordenar</a></li>
+          <li><a href="{{route('home')}}">Regresar al Home</a></li>
         </ul>
       </nav><!-- .nav-menu -->
     </div>
