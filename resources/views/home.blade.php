@@ -99,7 +99,7 @@
                 <p class="animate__animated animate__fadeInUp">Ven a conocer MVC Restaurant donde probarás comida de 3 países Cuba, Venezuela y México.</p>
                 <div>
                   <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Nuestro Menu</a>
-                  <a href="{{ route('ordenar') }}" class="btn-book animate__animated animate__fadeInUp scrollto">Ordenar</a>
+                  <a href="{{ route('ticket.create') }}" class="btn-book animate__animated animate__fadeInUp scrollto">Ordenar</a>
                 </div>
               </div>
             </div>
@@ -113,7 +113,7 @@
                 <p class="animate__animated animate__fadeInUp">Con un estilo elegante y distinguido y una gran atención. Uno de los mejores restaurantes en Guadalajara.</p>
                 <div>
                   <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Nuestro Menu</a>
-                  <a href="#book-a-table" class="btn-book animate__animated animate__fadeInUp scrollto">Book a Table</a>
+                  <a href="#contact" class="btn-book animate__animated animate__fadeInUp scrollto">Contactanos</a>
                 </div>
               </div>
             </div>
@@ -128,7 +128,7 @@
                 <p class="animate__animated animate__fadeInUp"> Comida exquisita para todos los gustos.</p>
                 <div>
                   <a href="#menu" class="btn-menu animate__animated animate__fadeInUp scrollto">Nuestro Menu</a>
-                  <a href="#book-a-table" class="btn-book animate__animated animate__fadeInUp scrollto">Book a Table</a>
+                  <a href="#contact" class="btn-book animate__animated animate__fadeInUp scrollto">Contactanos</a>
                 </div>
               </div>
             </div>
@@ -202,7 +202,7 @@
         <div class="row">
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="menu-flters">
-              <li data-filter="*" class="filter-active"><a href="{{ route('ordenar') }}">Pedir Orden</a></li>
+              <li data-filter="*" class="filter-active text-white"><a class="text-white" href="{{ route('ticket.create') }}">Pedir Orden</a></li>
             </ul>
           </div>
         </div>  

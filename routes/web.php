@@ -6,7 +6,9 @@ use App\Models\Platillo;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PlatilloController;
-
+use App\Http\Controllers\TicketController;
+use App\Models\Orden;
+use App\Models\Ticket;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,11 +26,12 @@ Route::get('/', function () {
     return view('home', compact('platillos'));
  })->name('home');
 
- Route::get('/ordenar', function () {
+ Route::get('/ordenar/{id}', function ($ticketId) {
     $platillos = Platillo::all();
-    return view('ordenar', compact('platillos'));
+    $ordenes = Orden::where('ticket_id', $ticketId)->get();
+    return view('ordenar', compact('platillos','ticketId','ordenes'));
  })->name('ordenar');
- 
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return redirect()->route('platillos');
     Route::get('/user/{id}', [UserController::class, 'show']);
@@ -37,3 +40,14 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('redirects', 'App\Http\Controllers\HomeController@index');
 
 Route::resource('platillos', PlatilloController::class);
+
+//Ticket Routes
+Route::get('ticket', 'App\Http\Controllers\TicketController@create')->name('ticket.create');
+Route::post('ticket', 'App\Http\Controllers\TicketController@store')->name('ticket.store');
+Route::get('ticket/finish/{id}', 'App\Http\Controllers\TicketController@finish')->name('ticket.finish');
+Route::delete('ticket/destroy/{id}', 'App\Http\Controllers\TicketController@destroy')->name('ticket.destroy');
+
+//Orden Routes
+Route::post('orden', 'App\Http\Controllers\OrdenController@store')->name('ordena.store');
+Route::delete('orden/destroy/{id}', 'App\Http\Controllers\OrdenController@destroy')->name('orden.destroy');
+

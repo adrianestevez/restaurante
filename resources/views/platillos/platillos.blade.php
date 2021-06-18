@@ -59,7 +59,6 @@
                         </svg>
                       </a>
 
-
                       <!--Tenemos que crear un foorm aparte y mandarlo a llamar desde el enlace mediante javascript-->
                       <form id="delete-{{$platillo->id_platillos}}" action="{{ route('platillos.destroy', $platillo) }}" method="POST">                      
                         @csrf

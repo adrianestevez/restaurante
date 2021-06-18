@@ -14,14 +14,14 @@
         @endif
 
           <div class="card-body">
-            <!-- <form action="{{route('platillos.store')}}" method="POST"> -->
+            <form action="{{route('platillos.store')}}" method="POST">
                @csrf
               <label for="nombre">Nombre del Platillo</label>
-              <input type="text" class="form-control" name="nombre" value="{{ $platillo->nombre ?? '' }}">
+              <input type="text" class="form-control" name="nombre" value="{{ $platillo->nombre ?? '' }}" required>
               <label for="ingredientes">Ingredientes</label>
-              <input type="text" class="form-control" name="ingredientes" value="{{ $platillo->ingredientes ?? '' }}">
+              <input type="text" class="form-control" name="ingredientes" value="{{ $platillo->ingredientes ?? '' }}" required>
               <label for="precio">Precio</label>
-              <input step="0.01" type="number" class="form-control" name="precio" value="{{ $platillo->precio ?? '' }}"><br>
+              <input type="number" class="form-control" name="precio" value="{{ $platillo->precio ?? '' }}" required><br>
               <label for="disponibilidad">Disponibilidad</label>
               <!--Radio  Disponibilidad-->
               <?php

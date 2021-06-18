@@ -44,15 +44,46 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="{{route('ticket.create')}}">Ordenar</a></li>
           <li><a href="{{route('home')}}">Regresar al Home</a></li>
         </ul>
       </nav><!-- .nav-menu -->
     </div>
   </header><!-- End Header -->
 
-  <main id="main">
-        @yield('contenido')
+  <main id="main">       
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                Orden Finalizada
+                <a class="btn btn-warning text-white float-right" href="{{ route('home') }}">Salir</a>
+              </div>
+              <div class="card-body">
+                <table class="table table-hover table-sm">
+                    <tbody>
+                        <h2>Su pedido</h2>
+                        <span>ID del ticket: </span><span>{{$ticket->id}}</span><br>
+                        <span>Nombre: </span><span>{{$ticket->nombre}}</span><br>
+                        <span>Mesa: </span><span>{{$ticket->id_mesa}}</span><br>
+                        <span>Total a pagar: </span><span>{{$ticket->total}}</span><br>
+                        <span>Muchas Gracias por ordenar, en seguida está su pedido :)</span> 
+                    </tbody>
+                    <tfoot>
+                        <a class="btn btn-danger float-right" href="javascript: document.getElementById('delete-{{$ticket->id}}').submit()" >Pedido entregado</a> 
+  
+                          <!--Tenemos que crear un foorm aparte y mandarlo a llamar desde el enlace mediante javascript-->
+                          <form id="delete-{{$ticket->id}}" action="{{ route('ticket.destroy', $ticket->id) }}" method="POST">                      
+                          @csrf
+                          @method('DELETE')
+                          </form>
+                    </tfoot>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
   </main><!-- End #main -->
 
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
